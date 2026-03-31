@@ -38,7 +38,7 @@ print("[Pregunta] ¿Que informacion te da resolve() sobre la ruta actual?")
 
 print(f"\n[Ahora] Cambia Path('.') por Path('docs') ")
 ruta_actual = Path("docs").resolve()
-print(f"[Resultado] ahora muestra tanto la ruta absoluta como,\n {ruta_actual} ")
+print(f"[Resultado] ahora muestra tanto la ruta absoluta terminando con \doc,\n {ruta_actual} ")
 existe = ruta_actual.exists() 
 es_directorio = ruta_actual.is_dir()
 print("[Resultado] Existe:", existe)
