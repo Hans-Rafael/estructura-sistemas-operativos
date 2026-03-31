@@ -1,0 +1,15 @@
+# Entornos virtuales (el más importante para tu caso)
+venv/
+env/
+.venv/
+ENV/
+
+# Archivos de caché de Python (se crean al correr scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Sistema Operativo ---
+# Archivos basura de Windows y Mac
+Thumbs.db
+.DS_Store
