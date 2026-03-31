@@ -18,7 +18,7 @@ Concepto SO relacionado:
 - Directorio de trabajo actual del proceso.
 """
 
-from pathlib import Path
+from pathlib import Path # De la libreria pathlib quiero usar solo Path con p mayuscula
 
 print("[Paso 1] Tomando la ruta actual del proceso...")
 ruta_actual = Path(".").resolve()
