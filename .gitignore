@@ -1,5 +1,6 @@
 #archivos temporales 
 .tmp
+.temp
 # Entornos virtuales (el más importante para tu caso)
 venv/
 env/
