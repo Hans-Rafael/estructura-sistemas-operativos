@@ -53,7 +53,7 @@ archivo.write_text("hola es contenido de un archivo a ser renombrado \n", encodi
 contenido_leido = archivo.read_text(encoding="utf-8").strip()
 print(f"contenido del archivo  sera_renombrado.txt : \n {contenido_leido}")
 # Renombrando un archivo.
-archivo.rename("renombrado_correctamente.txt")
+archivo.rename(tmp_dir /"renombrado_correctamente.txt")
 # crear archivo serra borrado en el directorio temp.
 archivox = tmp_dir / "a_ser_borrado.txt"
 archivox.unlink(missing_ok=True)  # archivo borrado
