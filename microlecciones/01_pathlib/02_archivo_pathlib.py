@@ -47,6 +47,17 @@ print("[Resultado] Contenido leido:", contenido)
 print(f"\n =======================================================\n")
 print(f"   Practica del codigo Reescrito por mi\n")
 print(f" =======================================================\n")
+# archivo nuevo que se renombrara
+archivo = tmp_dir / "sera_renombrado.txt"
+archivo.write_text(
+    "hola es contenido de un archibo renombrado \n", encoding="utf-8")
+contenido_leido = archivo.read_text(encoding="utf-8").strip()
+# Renombrando un archivo.
+archivo.rename("renombrado_correctamente.txt")
+# crear archivo serra borrado en el directorio temp.
+archivox = tmp_dir / "a_ser_borrado.txt"
+archivox.unlink(missing_ok=True)  # archivo borrado
+
 # reescribiendo el codigo para practicar
 ruta_donde_estoy = Path(".").resolve()
 print(f"la ruta donde estoy ahora es: \n {ruta_donde_estoy}")
