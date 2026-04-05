@@ -10,7 +10,8 @@ Que vas a observar:
 Concepto SO relacionado:
 - Operaciones basicas de filesystem desde un proceso.
 """
-
+# Path → crear, leer, escribir, renombrar, eliminar un archivo o directorio
+# Libreria : shutil ->  Copia archivo, mueve archivo o carpeta, elimina carpeta, copia carpeta entera, crea un zip/tar, devuelve espacio total, usado y libre del disco
 from pathlib import Path
 
 print("[Paso 1] Preparando carpeta temporal .tmp...")
@@ -48,16 +49,21 @@ print(f"\n =======================================================\n")
 print(f"   Practica del codigo Reescrito por mi\n")
 print(f" =======================================================\n")
 # archivo nuevo que se renombrara
-archivo = tmp_dir / "sera_renombrado.txt"
-archivo.write_text("hola es contenido de un archivo a ser renombrado \n", encoding="utf-8")
-contenido_leido = archivo.read_text(encoding="utf-8").strip()
+archivox = tmp_dir / "sera_renombrado.txt"
+archivox.write_text(
+    "hola es contenido de un archivo a ser renombrado \n", encoding="utf-8")
+contenido_leido = archivox.read_text(encoding="utf-8").strip()
 print(f"contenido del archivo  sera_renombrado.txt : \n {contenido_leido}")
 # Renombrando un archivo.
-archivo.rename(tmp_dir /"renombrado_correctamente.txt")
-# crear archivo serra borrado en el directorio temp.
+a_n = archivox.rename(tmp_dir / "renombrado_correctamente.txt")
+print(f"archivo renombrado : {a_n}")
+# crear archivo sera borrado en el directorio temp.
 archivox = tmp_dir / "a_ser_borrado.txt"
+archivox.write_text(
+    "hola es contenido de un archivo a ser Borrado \n", encoding="utf-8")
+print("**archivox** borrado, existe aun?:", archivox.exists())
 archivox.unlink(missing_ok=True)  # archivo borrado
-
+print("**archivox** borrado, existe aun?:", archivox.exists())
 # reescribiendo el codigo para practicar
 ruta_donde_estoy = Path(".").resolve()
 print(f"la ruta donde estoy ahora es: \n {ruta_donde_estoy}")
@@ -66,7 +72,7 @@ tmp_dir2.mkdir(exist_ok=True)  # creo el directorio temporal
 # compruebo si el directorio existe para ver si se creo efectivamente.
 existe = tmp_dir2.exists()
 print(f"el directorio temp existe, se creo ?: {existe}")  # (la carpeta)
-ruta_a_temp = Path("temp").resolve()  # direccion absoluta al directorio temp
+ruta_a_temp = Path(".temp").resolve()  # direccion absoluta al directorio temp
 print(f"El nuevo directorio es: {tmp_dir2}")
 print(f"la ruta absoluta  a temp es:    \n {ruta_a_temp}")
 es_directorio = ruta_a_temp.is_dir()
@@ -80,3 +86,31 @@ text_file.write_text(
 # leo el contenido del archivo
 text_readed = text_file.read_text(encoding="utf-8").strip()
 print(f"El texto guardado en el demo_3 en temp dice:\n'''{text_readed}'''")
+
+print("\n-----------------------------\n")
+
+# primero creo objeto
+tempo_dir = Path(".tempo")
+# reviso si existe el direcctorio
+print("existe directorio .tempo ?: ", tempo_dir.is_dir())
+# si no existe creo el directorio
+Path(".tempo").mkdir(exist_ok=True)
+# reviso si se creo el direcctorio
+print(" YA existe directorio .tempo ?: ", tempo_dir.is_dir())
+# reviso si dentro del directorio existe el archivo (nuevo_archivo.md)
+print("existe archivo nuevo_archivo.md ?: ",
+      (tempo_dir / "nuevo_archivo.md").exists())
+# nuevo archivo texto podria ser tambien Path(".tempo/nuevo_archivo.md")
+archivo_texto = tempo_dir/"nuevo_archivo.md"
+# crea el archivo si lo quiero dejar VACIO sino debo escribir datos si o si
+archivo_texto.touch()
+print("Ya existe archivo nuevo_archivo.md pero vacio ?: ", archivo_texto.exists())
+# ahora le agregamos texto dentro.
+archivo_texto.write_text(
+    "#Este archivo ahora es en marckdown\n dentro de nuevo_archivo.md en la carpeta .tempo", encoding="utf-8")
+# leeo para imprimir por pantalla
+lectura = archivo_texto.read_text(encoding="utf-8").strip()
+print(f"Contenido del archivo markdown recien creado:\n {lectura}")
+# borrado del archivo con unlink solo sirve para achivos o enlaces simbolico
+archivo_texto.unlink(missing_ok=True)
+print("el archivo (archivo_texto) aun existe?:",archivo_texto.exists())
