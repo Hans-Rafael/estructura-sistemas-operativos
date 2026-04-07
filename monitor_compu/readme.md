@@ -11,3 +11,10 @@ python3 monitor.py --info
 * CPU: Si os.getloadavg() devuelve un número mayor al total de tus núcleos (puedes verlos con os.cpu_count()), la CPU es el cuello de botella.
 * RAM: Si en /proc/meminfo el valor de MemAvailable es muy cercano a cero, la Memoria es el cuello de botella.
 * Disco: Puedes usar os.popen('iostat') para ver si el %util del disco supera el 80%
+# otros comando de analisis
+![alt text](image.png)
+
+### recordatorio
+puedo usar htop para ver el sistema en tiempo real o </p>
+el siguiente comando top -b -n 1 | head -n 30 </p>
+para copiar las primeras 30 lineas para analisis
