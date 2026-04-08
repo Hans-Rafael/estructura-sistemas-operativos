@@ -78,3 +78,4 @@ print(f"Las rutas del sistema son,{cantidad_rutas} y estas son: {rutas_sistema}"
 # Creamos una variable de entorno "fantasma" que solo vive en este programa
 os.environ['MI_VARIABLE'] = 'PythonEsGenial'
 print(f"Variable creada: {os.environ['MI_VARIABLE']}")
+print("========== Extra practicas ============")
