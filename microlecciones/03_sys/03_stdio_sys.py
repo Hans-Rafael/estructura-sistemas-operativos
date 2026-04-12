@@ -24,20 +24,26 @@ print("[Resultado] stderr: operacion de diagnostico", file=sys.stderr)
 
 print("[Ejercicio] Redirige stderr a archivo y compara con stdout.")
 print("[Pregunta] ¿Cuando conviene separar stdout y stderr?")
-print ("=== Extra practica ===")
+print("=== Extra practica ===")
 # Código ANSI para Rojo: \033[91m
 # Código ANSI para Resetear: \033[0m
 ROJO = "\033[91m"
+VERDE = "\033[92m"
 RESET = "\033[0m"
+
+
 def dividir(a, b):
     try:
         resultado = a / b
         # Esto va al canal NORMAL (stdout)
-        print(f"Éxito: El resultado es {resultado}")
+        sys.stdout.write(f"{VERDE}Éxito:{RESET} El resultado es {resultado}\n")
     except ZeroDivisionError:
         # Esto va al canal de ERROR (stderr)
-        sys.stderr.write(f"{ROJO}ERROR CRÍTICO: No puedes dividir entre cero.{RESET}\n")
+        sys.stderr.write(
+            f"{ROJO}ERROR CRÍTICO: No puedes dividir entre cero.{RESET}\n")
         # Opcional: cerramos el programa con un código de error (1)
         sys.exit(1)
 
+
+dividir(10, 5)
 dividir(10, 0)

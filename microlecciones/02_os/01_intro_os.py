@@ -44,7 +44,7 @@ print("===========Extra practicas==========")
 # --- PROCESOS (Limpiar pantalla) ---
 # Esta línea detecta tu sistema y ejecuta el comando de "limpiar terminal"
 # (Es una acción, no devuelve texto, por eso no lleva print afuera)
-os.system('cls' if os.name == 'nt' else 'clear')
+# os.system('cls' if os.name == 'nt' else 'clear')
 print("La pantalla se limpio antes de mostrar esto! ")
 # ---  NAVEGACIÓN Y RUTAS ---
 # Guardamos la ruta actual en una variable
@@ -68,14 +68,15 @@ if not os.path.exists(ruta_completa):  # reviso si ya no existe
 # Obtenemos la lista de archivos "aquí mismo"
 archivos = os.listdir(ruta_script)
 print(f"Los archivos en esta carpeta son: {archivos}")
-#--------- VARIABLES DE ENTORNO ---
+# --------- VARIABLES DE ENTORNO ---
 # Consultamos una variable del sistema (el PATH)
 rutas_sistema = os.environ.get("PATH")
-rutas = rutas_sistema.split(":")  # Separamos las rutas por el separador del sistema
-cantidad_rutas=len(rutas)
-print(f"Las rutas del sistema son,{cantidad_rutas} y estas son: {rutas_sistema}")
+# Separamos las rutas por el separador del sistema
+rutas = rutas_sistema.split(":")
+cantidad_rutas = len(rutas)
+print(
+    f"Las rutas del sistema son,{cantidad_rutas} y estas son: {rutas_sistema}")
 
 # Creamos una variable de entorno "fantasma" que solo vive en este programa
 os.environ['MI_VARIABLE'] = 'PythonEsGenial'
 print(f"Variable creada: {os.environ['MI_VARIABLE']}")
-print("========== Extra practicas ============")
